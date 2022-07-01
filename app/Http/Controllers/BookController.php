@@ -32,6 +32,18 @@ class BookController extends Controller
     }
 
     /**
+     * Delete a Book  from library
+     *
+     * @param $id
+     */
+    public function destroy($id)
+    {
+        Book::query()
+            ->find($id)
+            ->delete();
+    }
+
+    /**
      * Request Validation
      *
      * @param Request $request
