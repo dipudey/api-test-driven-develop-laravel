@@ -6,7 +6,7 @@ use Tests\TestCase;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Reservation;
-use App\Exceptions\BookNotCheckedInException;
+use App\Exceptions\BookNotCheckedOutException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 
@@ -44,7 +44,7 @@ class BookReservationsTest extends TestCase
 
     public function test_if_not_checked_out_exception_is_throw()
     {
-        $this->expectException(BookNotCheckedInException::class);
+        $this->expectException(BookNotCheckedOutException::class);
 
         $book = Book::factory()->create();
         $user = User::factory()->create();

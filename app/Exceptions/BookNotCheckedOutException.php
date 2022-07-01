@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 
-class BookNotCheckedInException extends Exception
+class BookNotCheckedOutException extends Exception
 {
     //
 }

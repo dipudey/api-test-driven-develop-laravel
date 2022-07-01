@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Exceptions\BookNotCheckedInException;
+use App\Exceptions\BookNotCheckedOutException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,7 +30,7 @@ class Book extends Model
      *
      * @param User $user
      *
-     * @throws BookNotCheckedInException
+     * @throws BookNotCheckedOutException
      */
     public function checkin(User $user)
     {
@@ -41,7 +41,7 @@ class Book extends Model
             ->first();
 
         if (!$reservation) {
-            throw new BookNotCheckedInException("Book Not Checked In");
+            throw new BookNotCheckedOutException("Book Not Checked In");
         }
 
         $reservation->update([
