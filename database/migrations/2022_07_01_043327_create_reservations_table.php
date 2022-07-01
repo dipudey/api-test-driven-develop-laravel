@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Book::class)->constrained();
             $table->timestamp('checked_out_at');
+            $table->timestamp('checked_in_at')->nullable();
             $table->timestamps();
         });
     }
